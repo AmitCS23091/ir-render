@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Retrieval (IR) Simplified</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="light-mode">
+
+    <!-- Navigation -->
+    <nav class="navbar hidden" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo"><i class="fa-solid fa-magnifying-glass-chart"></i> @mit</a>
+            <ul class="nav-links">
+                <li><a href="#what-is-ir">What is IR?</a></li>
+                <li><a href="#process">How it Works</a></li>
+                <li><a href="#models">Models</a></li>
+                <li><a href="#applications">Applications</a></li>
+                <li><a href="#demo">Demo</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <input type="checkbox" id="theme-switch" class="theme-switch-input">
+                <label for="theme-switch" class="theme-switch-label">
+                    <i class="fa-solid fa-sun icon-sun"></i>
+                    <i class="fa-solid fa-moon icon-moon"></i>
+                </label>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header / Landing Section -->
+    <header class="hero-section" id="home">
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="container hero-container hidden">
+            <div class="hero-content">
+                <h1>Understanding<br><span class="gradient-text">Information Retrieval</span><br>Made Simple</h1>
+                <p>Learn how search engines find exactly what you're looking for in milliseconds. A visual journey into
+                    the core of search technology.</p>
+                <div class="hero-buttons">
+                    <a href="#what-is-ir" class="btn btn-primary">Start Learning <i
+                            class="fa-solid fa-arrow-down"></i></a>
+                    <a href="#process" class="btn btn-secondary">See Process</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <!-- 3D-like Animation Container -->
+                <div class="search-3d-container active-float">
+                    <div class="search-bar-3d">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span class="typing-animation"></span>
+                    </div>
+                    <div class="floating-doc doc-1"><i class="fa-solid fa-file-lines"></i></div>
+                    <div class="floating-doc doc-2"><i class="fa-solid fa-image"></i></div>
+                    <div class="floating-doc doc-3"><i class="fa-solid fa-video"></i></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section 1: What is IR? -->
+    <section id="what-is-ir" class="section">
+        <div class="container">
+            <div class="section-header hidden">
+                <h2 class="section-title">What is <span class="gradient-text">Information Retrieval?</span></h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="what-is-content">
+                <div class="text-card hidden">
+                    <div class="icon-wrapper"><i class="fa-solid fa-database"></i></div>
+                    <h3>The Definition</h3>
+                    <p><strong>Information Retrieval (IR)</strong> is the process of obtaining structure or unstructured
+                        information resources (usually documents) relevant to an information need from a large
+                        collection.</p>
+                    <div class="examples-box">
+                        <h4>Real-Life Examples:</h4>
+                        <ul>
+                            <li><i class="fa-brands fa-google"></i> Google Web Search</li>
+                            <li><i class="fa-brands fa-youtube"></i> YouTube Video Search</li>
+                            <li><i class="fa-brands fa-amazon"></i> Amazon Product Search</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="visual-explanation hidden delay-1">
+                    <div class="fake-browser">
+                        <div class="browser-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <div class="browser-body">
+                            <div class="query-box">
+                                <i class="fa-solid fa-user"></i> User Query: <span>"Best laptops 2024"</span>
+                            </div>
+                            <div class="arrow-down"><i class="fa-solid fa-arrow-down"></i></div>
+                            <div class="system-box">
+                                <i class="fa-solid fa-server"></i> IR System (Matching & Ranking)
+                            </div>
+                            <div class="arrow-down"><i class="fa-solid fa-arrow-down"></i></div>
+                            <div class="results-box">
+                                <div class="result-item populated"><i class="fa-solid fa-list-ol"></i> Top 10 Laptops of
+                                    2024 (Rank #1)</div>
+                                <div class="result-item populated"><i class="fa-solid fa-bolt"></i> Best Performance
+                                    Laptops (Rank #2)</div>
+                                <div class="result-item populated"><i class="fa-solid fa-tag"></i> Budget Laptops Guide
+                                    (Rank #3)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: How IR Works -->
+    <section id="process" class="section bg-alt">
+        <div class="container">
+            <div class="section-header text-center hidden">
+                <h2 class="section-title">How IR Works <span class="gradient-text">(The Process)</span></h2>
+                <p class="section-subtitle">A step-by-step journey from documents to search results</p>
+            </div>
+
+            <!-- 2D Animated Pipeline -->
+            <div class="animated-2d-pipeline hidden">
+                <div class="scene-2d">
+                    <div class="flying-word" id="flying-word">"apple"</div>
+                    
+                    <div class="stage" id="stage-1">
+                        <div class="process-card bg-query"><i class="fa-solid fa-keyboard"></i><span>Query</span></div>
+                    </div>
+                    <div class="data-stream stream-1"></div>
+                    
+                    <div class="stage" id="stage-2">
+                         <div class="process-card bg-engine"><i class="fa-solid fa-gears"></i><span>Engine</span></div>
+                    </div>
+                     <div class="data-stream stream-2"></div>
+                     
+                    <div class="stage" id="stage-3">
+                        <div class="process-card bg-db"><i class="fa-solid fa-database"></i><span>Index</span></div>
+                    </div>
+                     <div class="data-stream stream-3"></div>
+                     
+                    <div class="stage" id="stage-4">
+                        <div class="process-card bg-rank"><i class="fa-solid fa-ranking-star"></i><span>Rank</span></div>
+                    </div>
+                     <div class="data-stream stream-4"></div>
+                     
+                    <div class="stage" id="stage-5">
+                       <div class="process-card bg-results"><i class="fa-solid fa-list-check"></i><span>Results</span></div>
+                    </div>
+                </div>
+                <div class="pipeline-status">Status: <span id="pipeline-text">Waiting for Query...</span></div>
+            </div>
+
+            <div class="process-timeline">
+                <!-- Step 1 -->
+                <div class="process-step hidden">
+                    <div class="step-icon"><i class="fa-solid fa-folder-open"></i></div>
+                    <div class="step-content">
+                        <h3>1. Document Collection</h3>
+                        <p>Gathering all possible data (web pages, files, images) into a massive database.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="process-step hidden delay-1">
+                    <div class="step-icon"><i class="fa-solid fa-filter"></i></div>
+                    <div class="step-content">
+                        <h3>2. Preprocessing</h3>
+                        <p>Cleaning the text so the computer understands it better.</p>
+                        <ul class="sub-steps">
+                            <li><strong>Tokenization:</strong> Breaking text into single words (tokens).</li>
+                            <li><strong>Stopword Removal:</strong> Removing common words like "the", "is", "at".</li>
+                            <li><strong>Stemming:</strong> Reducing words to their root form (e.g., "running" → "run").
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="process-step hidden delay-2">
+                    <div class="step-icon"><i class="fa-solid fa-list-ol"></i></div>
+                    <div class="step-content">
+                        <h3>3. Indexing</h3>
+                        <p>Creating an organized "dictionary" (Inverted Index) showing exactly which document contains
+                            which word to speed up searching.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="process-step hidden delay-3">
+                    <div class="step-icon"><i class="fa-solid fa-keyboard"></i></div>
+                    <div class="step-content">
+                        <h3>4. Query Processing</h3>
+                        <p>When a user types a search, the system cleans the query exactly like it cleaned the
+                            documents.</p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="process-step hidden delay-4">
+                    <div class="step-icon"><i class="fa-solid fa-ranking-star"></i></div>
+                    <div class="step-content">
+                        <h3>5. Ranking Results</h3>
+                        <p>Applying mathematical models to score documents based on relevance and showing the
+                            highest-scoring ones first.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: IR Models -->
+    <section id="models" class="section">
+        <div class="container">
+            <div class="section-header text-center hidden">
+                <h2 class="section-title">The Core <span class="gradient-text">IR Models</span></h2>
+                <p class="section-subtitle">How systems map queries to documents mathematically</p>
+            </div>
+
+            <div class="models-grid">
+                <!-- Model 1 -->
+                <div class="card model-card hidden">
+                    <div class="card-icon"><i class="fa-solid fa-code-branch"></i></div>
+                    <h3>Boolean Model</h3>
+                    <p class="model-desc">Uses Exact Match based on Boolean logic (AND, OR, NOT).</p>
+                    <div class="model-example">
+                        <strong>Example:</strong><br>
+                        "Apple AND Phone NOT Fruit"
+                    </div>
+                    <div class="pros-cons">
+                        <div class="pro"><i class="fa-solid fa-check"></i> Clean and simple logic</div>
+                        <div class="con"><i class="fa-solid fa-xmark"></i> No partial matches or ranking</div>
+                    </div>
+                </div>
+
+                <!-- Model 2 -->
+                <div class="card model-card hidden delay-1 highlight-card">
+                    <div class="card-icon"><i class="fa-solid fa-vector-square"></i></div>
+                    <h3>Vector Space Model</h3>
+                    <p class="model-desc">Represents documents and queries as vectors in a multi-dimensional space.</p>
+                    <div class="model-example">
+                        <strong>Example:</strong><br>
+                        Uses Cosine Similarity to find angle between query and document vectors.
+                    </div>
+                    <div class="pros-cons">
+                        <div class="pro"><i class="fa-solid fa-check"></i> Excellent for ranking results</div>
+                        <div class="con"><i class="fa-solid fa-xmark"></i> Assumes terms are independent</div>
+                    </div>
+                </div>
+
+                <!-- Model 3 -->
+                <div class="card model-card hidden delay-2">
+                    <div class="card-icon"><i class="fa-solid fa-dice"></i></div>
+                    <h3>Probabilistic Model</h3>
+                    <p class="model-desc">Estimates the probability that a document will be relevant to a particular
+                        query.</p>
+                    <div class="model-example">
+                        <strong>Example:</strong><br>
+                        BM25 algorithm (Used by modern search engines like Elasticsearch).
+                    </div>
+                    <div class="pros-cons">
+                        <div class="pro"><i class="fa-solid fa-check"></i> Mathurally rigorous & accurate</div>
+                        <div class="con"><i class="fa-solid fa-xmark"></i> Hard to estimate initial probabilities</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Real-World Applications -->
+    <section id="applications" class="section bg-alt">
+        <div class="container">
+            <div class="section-header hidden">
+                <h2 class="section-title gradient-text">Real-World Applications</h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="apps-grid">
+                <div class="app-card hidden">
+                    <i class="fa-brands fa-google app-icon"></i>
+                    <h3>Web Search Engines</h3>
+                    <p>Crawling and indexing billions of web pages to serve user queries in milliseconds.</p>
+                </div>
+                <div class="app-card hidden delay-1">
+                    <i class="fa-solid fa-cart-shopping app-icon"></i>
+                    <h3>E-Commerce</h3>
+                    <p>Finding the exact product among millions of items (like Amazon or Flipkart).</p>
+                </div>
+                <div class="app-card hidden delay-2">
+                    <i class="fa-solid fa-film app-icon"></i>
+                    <h3>Media Recommendations</h3>
+                    <p>Recommending movies and music based on user profiles and tags (Netflix, Spotify).</p>
+                </div>
+                <div class="app-card hidden delay-3">
+                    <i class="fa-regular fa-comments app-icon"></i>
+                    <h3>Chatbots / AI</h3>
+                    <p>Retrieving relevant knowledge base articles to answer customer questions automatically.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Interactive Demo -->
+    <section id="demo" class="section">
+        <div class="container">
+            <div class="demo-container hidden">
+                <div class="demo-info">
+                    <h2 class="section-title">Try it Yourself <i
+                            class="fa-solid fa-wand-magic-sparkles gradient-text"></i></h2>
+                    <p>Experience how an Information Retrieval system distinguishes context. Try searching for ambiguous
+                        terms!</p>
+                    <p class="hint"><strong>Hint:</strong> Try typing <em>"apple"</em>, <em>"java"</em>, or
+                        <em>"python"</em>.
+                    </p>
+                </div>
+
+                <div class="demo-app glass-panel">
+                    <form id="search-form" class="search-form">
+                        <div class="search-input-wrapper">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="search-input" placeholder="Enter your query here..."
+                                autocomplete="off">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+
+                    <div class="demo-divider"></div>
+
+                    <div id="loading" class="loading-state" style="display: none;">
+                        <i class="fa-solid fa-circle-notch fa-spin"></i> Processing Query...
+                    </div>
+
+                    <div id="results-container" class="results-container">
+                        <!-- Results injected via JS -->
+                        <div class="empty-state">
+                            <img src="https://cdn-icons-png.flaticon.com/512/7486/7486747.png" alt="Search Illustration"
+                                class="empty-icon" style="width: 100px; opacity: 0.5;">
+                            <p>Enter a query above to simulate retrieval results.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Visual Comparison -->
+    <section id="comparison" class="section bg-alt">
+        <div class="container">
+            <div class="section-header text-center hidden">
+                <h2 class="section-title">Model <span class="gradient-text">Comparison</span></h2>
+                <p class="section-subtitle">A quick look at how the main models stack up</p>
+            </div>
+
+            <div class="table-container hidden">
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Complexity</th>
+                            <th>Accuracy</th>
+                            <th>Primary Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Boolean</strong></td>
+                            <td><span class="badge-low">Low</span></td>
+                            <td><span class="badge-low">Basic</span></td>
+                            <td>Early library catalogs, strict filtering</td>
+                        </tr>
+                        <tr class="active-row">
+                            <td><strong>Vector Space</strong></td>
+                            <td><span class="badge-med">Medium</span></td>
+                            <td><span class="badge-high">High</span></td>
+                            <td>Modern general search, document similarity</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Probabilistic</strong></td>
+                            <td><span class="badge-high">High</span></td>
+                            <td><span class="badge-high">Very High</span></td>
+                            <td>Advanced web search (BM25 algorithms)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Learn More -->
+    <section id="learn-more" class="section">
+        <div class="container">
+            <div class="learn-more-grid">
+
+                <div class="fun-facts hidden delay-1">
+                    <h3 class="mb-3"><i class="fa-solid fa-lightbulb"></i> Did You Know?</h3>
+                    <div class="fact-card">
+                        <div class="fact-icon">🚀</div>
+                        <p>Google crunches over <strong>8.5 billion</strong> searches every single day using advanced IR
+                            algorithms.</p>
+                    </div>
+                    <div class="fact-card">
+                        <div class="fact-icon">💾</div>
+                        <p>The first automated Information Retrieval system was introduced in the <strong>1950s</strong>
+                            for library catalogs.</p>
+                    </div>
+                    <div class="fact-card">
+                        <div class="fact-icon">⏱️</div>
+                        <p>A modern search takes about <strong>0.2 seconds</strong> but checks an index of billions of
+                            pages.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: Footer & About Project -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i> @mit
+                    <p class="footer-tagline">Simplifying search technology.</p>
+                </div>
+
+                <div class="about-project">
+                    <h4>About Project</h4>
+                    <ul class="project-details">
+                        <li><i class="fa-solid fa-user-graduate"></i> Created by: <strong>Amit</strong></li>
+                        <li><i class="fa-solid fa-book-open"></i> Course: <strong>Animation & Multimedia</strong></li>
+                        <li><i class="fa-solid fa-building-columns"></i> College: <strong>S. B. Jain Institute of
+                                Technology, Nagpur</strong></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#what-is-ir">What is IR?</a></li>
+                        <li><a href="#process">Process</a></li>
+                        <li><a href="#demo">Interactive Demo</a></li>
+                        <li><a href="#home">Back to Top <i class="fa-solid fa-arrow-up"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 @mit. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>
